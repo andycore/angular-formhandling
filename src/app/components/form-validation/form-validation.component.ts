@@ -1,4 +1,4 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormService} from "../../modules/form/services/form.service";
 import {FormConfigModel, FormControlType} from "../../modules/form/models/form-config.model";
 import {Validators} from "@angular/forms";

@@ -9,13 +9,15 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HeaderComponent} from './components/header/header.component';
 import {FormErrorComponent} from './components/form-error/form-error.component';
 import {FormValidationComponent} from './components/form-validation/form-validation.component';
+import { FormFeedbackComponent } from './components/form-feedback/form-feedback.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'page1', pathMatch: 'full'},
   {path: 'page1', component: Page1Component},
   {path: 'form-error', component: FormErrorComponent},
-  {path: 'form-validation', component: FormValidationComponent}
+  {path: 'form-validation', component: FormValidationComponent},
+  {path: 'form-feedback', component: FormFeedbackComponent}
 ];
 
 @NgModule({
@@ -24,7 +26,8 @@ const routes: Routes = [
     Page1Component,
     HeaderComponent,
     FormErrorComponent,
-    FormValidationComponent
+    FormValidationComponent,
+    FormFeedbackComponent
   ],
   imports: [
     BrowserModule,

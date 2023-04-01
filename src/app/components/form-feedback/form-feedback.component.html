@@ -1,0 +1,35 @@
+<h1>Formular Feedback</h1>
+<p>
+  Entwicklungsumgebung für das empfangen der Formulardaten
+</p>
+
+<div class="container">
+  <form name="form" [formGroup]="frmService.formGroup" (ngSubmit)="frmService.submit()">
+    <div class="row">
+      <div class="col-md-6">
+        <app-form [config]="formConfig['leftSide']"></app-form>
+      </div>
+      <div class="col-md-6">
+        <app-form [config]="formConfig['rightSide']"></app-form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <app-form [config]="formConfig['center']"></app-form>
+      </div>
+    </div>
+    <div class="row">
+      <button type="submit" class="btn btn-danger">Submit</button>
+    </div>
+  </form>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h2>Formulardaten</h2>
+    <p>Rückgabewert der gesamten Form</p>
+    <pre>{{frmService.formGroup.getRawValue() | json}}</pre>
+  </div>
+</div>
