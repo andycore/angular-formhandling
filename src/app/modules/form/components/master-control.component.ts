@@ -80,7 +80,6 @@ export abstract class MasterControlComponent implements OnDestroy, OnInit, After
   /**
    * Return options for specific control, if options available.
    * Accessible from all other Components who want zu extend from this class.
-   * @todo Muss auf Checkbox und Radio buttons angepasst werden.
    */
   public getOptions(): FormElementOptions[] {
     if (this.controlConfig.hasOwnProperty('options')) {
