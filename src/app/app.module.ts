@@ -9,15 +9,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HeaderComponent} from './components/header/header.component';
 import {FormErrorComponent} from './components/form-error/form-error.component';
 import {FormValidationComponent} from './components/form-validation/form-validation.component';
-import { FormFeedbackComponent } from './components/form-feedback/form-feedback.component';
+import {FormFeedbackComponent} from './components/form-feedback/form-feedback.component';
+import {FormUpdateComponent} from './components/form-update/form-update.component';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   {path: '', redirectTo: 'page1', pathMatch: 'full'},
-  {path: 'page1', component: Page1Component},
-  {path: 'form-error', component: FormErrorComponent},
-  {path: 'form-validation', component: FormValidationComponent},
-  {path: 'form-feedback', component: FormFeedbackComponent}
+  {path: 'page1', component: Page1Component, data: {title: 'Page 1'}},
+  {path: 'form-error', component: FormErrorComponent, data: {title: 'Form Error'}},
+  {path: 'form-validation', component: FormValidationComponent, data: {title: 'Form Validation'}},
+  {path: 'form-feedback', component: FormFeedbackComponent, data: {title: 'Form Feedback'}},
+  {path: 'form-update', component: FormUpdateComponent, data: {title: 'Form Update'}}
 ];
 
 @NgModule({
@@ -27,7 +29,8 @@ const routes: Routes = [
     HeaderComponent,
     FormErrorComponent,
     FormValidationComponent,
-    FormFeedbackComponent
+    FormFeedbackComponent,
+    FormUpdateComponent
   ],
   imports: [
     BrowserModule,

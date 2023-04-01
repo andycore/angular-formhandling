@@ -6,19 +6,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="page1" routerLinkActive="active">Formular</a>
+      <li *ngFor="let r of routerConfig" class="nav-item active">
+        <a class="nav-link" [routerLink]="r?.path" routerLinkActive="active">{{r && r.data ? r.data['title'] : ''}}</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="form-error" routerLinkActive="active">Fehler</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="form-validation" routerLinkActive="active">Asynchron</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="form-feedback" routerLinkActive="active">Form Feedback</a>
-      </li>
-
     </ul>
   </div>
 </nav>
