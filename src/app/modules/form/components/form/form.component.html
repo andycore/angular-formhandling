@@ -17,6 +17,10 @@
       <app-radio-group [controlConfig]="element"></app-radio-group>
     </ng-container>
 
+    <ng-container *ngIf="element.type === typeEnum.CHECKBOX">
+      <app-checkbox [controlConfig]="element"></app-checkbox>
+    </ng-container>
+
     <app-error [controlConfig]="element"></app-error>
   </div>
 </ng-container>

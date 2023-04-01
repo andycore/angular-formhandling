@@ -65,5 +65,13 @@ export const formConfig: FormConfigModel = {
         {value: 'option3', label: 'Option 3'}
       ],
     } as FormCheckboxGroup,
+    {
+      id: 'smurf_agb',
+      name: 'smurf_agb',
+      type: FormControlType.CHECKBOX,
+      label: 'Ich akzeptiere die Schlumpf AGB',
+      value: 'acceppt_something',
+      description: 'Schlumpfe bitte die AGB',
+    }
   ]
 }

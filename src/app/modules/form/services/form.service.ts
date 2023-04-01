@@ -57,6 +57,9 @@ export class FormService {
             case FormControlType.RADIO:
               this.formGroup.addControl(ctrl.name, this.createRadioGroupControl(control as FormRadioGroup));
               break;
+            case FormControlType.CHECKBOX:
+              this.formGroup.addControl(ctrl.name, this.createCheckboxControl(control as FormInput));
+              break;
             default:
               break;
           }
@@ -107,10 +110,20 @@ export class FormService {
    * @param config
    * @private
    */
-
   private createRadioGroupControl(config: FormRadioGroup) {
     return new FormControl(config.value || '', config.validatiors, config.validatiorsAsync);
   }
+
+  /**
+   * Create single checkbox control
+   * @param config
+   * @private
+   * @example this.formService.createInputControl(this.formConfig.checkbox1);
+   */
+  private createCheckboxControl(config: FormInput) {
+    return new FormControl(config.value || '', config.validatiors, config.validatiorsAsync);
+  }
+
 
   /**
    * Submit form

@@ -1,0 +1,10 @@
+<div class="form-group" [formGroup]="frmGroup">
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input"
+           [id]="controlConfig.id"
+           [value]="controlConfig.value"
+           [formControlName]="controlConfig.name">
+    <label *ngIf="controlConfig.label" [for]="controlConfig.id">{{controlConfig.label}}</label>
+  </div>
+  <small *ngIf="controlConfig.description" class="form-text text-muted">{{controlConfig.description}}</small>
+</div>
