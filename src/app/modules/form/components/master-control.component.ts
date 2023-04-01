@@ -2,7 +2,7 @@ import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output
 import {
   FormCheckboxGroup,
   FormControls,
-  FormCheckboxOptions,
+  FormElementOptions,
   FormSelect,
 } from "../models/form-config.model";
 import {FormService} from "../services/form.service";
@@ -82,7 +82,7 @@ export abstract class MasterControlComponent implements OnDestroy, OnInit, After
    * Accessible from all other Components who want zu extend from this class.
    * @todo Muss auf Checkbox und Radio buttons angepasst werden.
    */
-  public getOptions(): FormCheckboxOptions[] {
+  public getOptions(): FormElementOptions[] {
     if (this.controlConfig.hasOwnProperty('options')) {
       return (this.controlConfig as FormSelect | FormCheckboxGroup).options;
     }

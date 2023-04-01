@@ -29,29 +29,24 @@ export interface FormInput extends FormControlConfig {
 
 // Form Control Interfaces for Select Elements
 export interface FormSelect extends FormControlConfig {
-  options: FormCheckboxOptions[]
+  options: FormElementOptions[]
 }
 
 // Form Control Interfaces for Checkbox Group Elements
 export interface FormCheckboxGroup extends FormControlConfig {
-  options: FormCheckboxOptions[]
+  options: FormElementOptions[]
 }
 
 export interface FormRadioGroup extends FormControlConfig {
   value: string | null,
-  options: FormRadioOptions[]
+  options: FormElementOptions[]
 }
 
 // Form Control Interfaces for Radio Group Elements and Dropdown lists
-export interface FormCheckboxOptions {
+export interface FormElementOptions {
   value: string | null,
   label: string,
   checked?: boolean
-}
-
-export interface FormRadioOptions {
-  value: string | null,
-  label: string,
 }
 
 // Enum for all form control types
