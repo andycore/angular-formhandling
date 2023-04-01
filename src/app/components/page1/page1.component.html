@@ -1,0 +1,37 @@
+<h1>Formuar Beispiel</h1>
+<p>
+  Entwicklungsumgebung für das Formuar Handling
+</p>
+
+
+<div class="container" [formGroup]="formService.formGroup">
+  <div class="row">
+    <div class="col-md-6">
+      <!-- Inhalt der linken Spalte -->
+      <h2>Linke Spalte</h2>
+      <app-form [config]="formConfig['group1']"></app-form>
+    </div>
+    <div class="col-md-6">
+      <!-- Inhalt der rechten Spalte -->
+      <h2>Rechte Spalte</h2>
+      <app-form [config]="formConfig['group2']"></app-form>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <h2>Formularwerte</h2>
+      <pre>{{formService.formGroup.value | json}}</pre>
+    </div>
+    <div *ngIf="group.invalid">
+      <h2>Formular Fehler</h2>
+      <div *ngFor="let error of formService.formGroup.errors | keyvalue">
+        <div *ngIf="error.value">{{error.key}}</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-danger" (click)="formService.submit()" [disabled]="group.invalid">Submit
+    </button>
+  </div>
+

@@ -1,0 +1,23 @@
+<ng-container *ngFor="let element of config">
+  <div class="form-group border rounded p-2 mb-2">
+
+    <ng-container *ngIf="element.type === typeEnum.INPUT">
+      <app-input [controlConfig]="element"></app-input>
+    </ng-container>
+
+    <ng-container *ngIf="element.type === typeEnum.SELECT">
+      <app-dropdown [controlConfig]="element"></app-dropdown>
+    </ng-container>
+
+    <ng-container *ngIf="element.type === typeEnum.CHECKBOX_GROUP">
+      <app-checkbox-group [controlConfig]="element"></app-checkbox-group>
+    </ng-container>
+
+    <ng-container *ngIf="element.type === typeEnum.RADIO">
+      <app-radio-group [controlConfig]="element"></app-radio-group>
+    </ng-container>
+
+    <app-error [controlConfig]="element"></app-error>
+  </div>
+</ng-container>
+

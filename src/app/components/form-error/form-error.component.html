@@ -1,0 +1,25 @@
+<h1>Formular Fehler</h1>
+<p>
+  Entwicklungsumgebung für das Fehlerhandling
+</p>
+
+<div class="container">
+  <form name="form" [formGroup]="formService.formGroup" (ngSubmit)="formService.submit()">
+    <div class="row">
+      <div class="col-md-12">
+        <app-form [config]="formConfig['section1']"></app-form>
+      </div>
+      <button type="submit" class="btn btn-danger">Submit</button>
+    </div>
+  </form>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h2>Formularfehler</h2>
+    <p>Zeige alle aktuellen Formular Fehler</p>
+    <pre>{{formService.getFormErrorMessages() | json}}</pre>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="form-group" [formGroup]="frmGroup">
+  <label *ngIf="controlConfig.label" [for]="controlConfig.id">{{controlConfig.label}}</label>
+  <select
+    [formControlName]="controlConfig.name"
+    [id]="controlConfig.id"
+    class="form-select"
+    aria-label="Default select example"
+  >
+    <option *ngFor="let o of getOptions()" [selected]="o.checked" [value]="o.value">{{o.label}}</option>
+  </select>
+  <small *ngIf="controlConfig.description" class="form-text text-muted">{{controlConfig.description}}</small>
+</div>
