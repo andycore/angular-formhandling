@@ -1,5 +1,10 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {FormCheckboxGroup, FormControls, FormOptionsModel, FormSelect} from "../models/form-config.model";
+import {
+  FormCheckboxGroup,
+  FormControls,
+  FormCheckboxOptions,
+  FormSelect,
+} from "../models/form-config.model";
 import {FormService} from "../services/form.service";
 import {AbstractControl, FormGroup} from "@angular/forms";
 import {Subject, Subscription, takeUntil} from "rxjs";
@@ -75,8 +80,9 @@ export abstract class MasterControlComponent implements OnDestroy, OnInit, After
   /**
    * Return options for specific control, if options available.
    * Accessible from all other Components who want zu extend from this class.
+   * @todo Muss auf Checkbox und Radio buttons angepasst werden.
    */
-  public getOptions(): FormOptionsModel[] {
+  public getOptions(): FormCheckboxOptions[] {
     if (this.controlConfig.hasOwnProperty('options')) {
       return (this.controlConfig as FormSelect | FormCheckboxGroup).options;
     }

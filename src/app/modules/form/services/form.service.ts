@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {
   FormCheckboxGroup,
   FormConfigModel, FormControls,
   FormControlType,
-  FormInput,
+  FormInput, FormRadioGroup,
   FormSelect
 } from "../models/form-config.model";
 import {FormValidationService} from "./form-validation.service";
@@ -55,7 +55,7 @@ export class FormService {
               this.formGroup.addControl(ctrl.name, this.createCheckboxGroupControl(control as FormCheckboxGroup));
               break;
             case FormControlType.RADIO:
-              this.formGroup.addControl(ctrl.name, this.createRadioGroupControl(control as FormCheckboxGroup));
+              this.formGroup.addControl(ctrl.name, this.createRadioGroupControl(control as FormRadioGroup));
               break;
             default:
               break;
@@ -94,11 +94,12 @@ export class FormService {
    * @example this.formService.createCheckboxGroupControl(this.formConfig.checkboxGroup1);
    */
   private createCheckboxGroupControl(config: FormCheckboxGroup) {
-    const group = new FormGroup({});
-    for (const option of config.options) {
-      group.addControl(option.value ? option.value : '', new FormControl(option.checked || false));
-    }
-    return group;
+    const controlArray: FormControl[] = [];
+    config.options.forEach(option => {
+      if (option.checked)
+        controlArray.push(new FormControl(option.value));
+    });
+    return new FormArray(controlArray);
   }
 
   /**
@@ -106,12 +107,9 @@ export class FormService {
    * @param config
    * @private
    */
-  private createRadioGroupControl(config: FormCheckboxGroup) {
-    const group = new FormGroup({});
-    for (const option of config.options) {
-      group.addControl('selection', new FormControl(config.value));
-    }
-    return group;
+
+  private createRadioGroupControl(config: FormRadioGroup) {
+    return new FormControl(config.value || '', config.validatiors, config.validatiorsAsync);
   }
 
   /**

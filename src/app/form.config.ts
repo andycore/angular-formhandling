@@ -29,9 +29,9 @@ export const formConfig: FormConfigModel = {
       name: 'select1',
       type: FormControlType.SELECT,
       options: [
-        {value: 'options value 1', label: 'Text Label 1', checked: true},
-        {value: 'options value 2', label: 'Text Label 2'},
-        {value: 'options value 3', label: 'Text Label 3'},
+        {value: 'select value 1', label: 'Text Label 1', checked: true},
+        {value: 'select value 2', label: 'Text Label 2'},
+        {value: 'select value 3', label: 'Text Label 3'},
       ],
       description: 'This is a example description for Select elements',
     } as FormSelect,

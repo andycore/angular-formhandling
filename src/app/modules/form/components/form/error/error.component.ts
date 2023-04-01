@@ -1,8 +1,7 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormService} from "../../../services/form.service";
 import {FormControls} from "../../../models/form-config.model";
-import {from, map, Observable, of, switchAll} from "rxjs";
-import {AbstractControl} from "@angular/forms";
+import {Observable} from "rxjs";
 
 /**
  * Error Component. Display error messages for a given control by control config.

@@ -5,7 +5,7 @@ import {InputComponent} from './components/controls/input/input.component';
 import {FormComponent} from './components/form/form.component';
 import {DropdownComponent} from './components/controls/dropdown/dropdown.component';
 import {CheckboxGroupComponent} from './components/controls/checkbox-group/checkbox-group.component';
-import {RadioGroupComponent} from './components/controls/radio-group/radio-group.component';
+import {RadioComponent} from './components/controls/radio-group/radio.component';
 import {ErrorComponent} from './components/form/error/error.component';
 
 
@@ -15,7 +15,7 @@ import {ErrorComponent} from './components/form/error/error.component';
     FormComponent,
     DropdownComponent,
     CheckboxGroupComponent,
-    RadioGroupComponent,
+    RadioComponent,
     ErrorComponent
   ],
   exports: [
@@ -23,7 +23,7 @@ import {ErrorComponent} from './components/form/error/error.component';
     FormComponent,
     DropdownComponent,
     CheckboxGroupComponent,
-    RadioGroupComponent,
+    RadioComponent,
     ErrorComponent
   ],
   imports: [
