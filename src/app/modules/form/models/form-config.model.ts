@@ -13,9 +13,9 @@ interface FormControlConfig {
   name: string,
   type: FormControlType,
   label?: string,
+  value?: any,
   placeholder?: string
-  value?: string | null,
-  readonly?: boolean,
+  disabled?: boolean,
   required?: boolean,
   validatiors?: ValidatorFn[],
   validatiorsAsync?: AsyncValidatorFn[],
@@ -25,16 +25,19 @@ interface FormControlConfig {
 
 // Form Control Interfaces for Input Elements
 export interface FormInput extends FormControlConfig {
+  value?: string | null,
 }
 
 // Form Control Interfaces for Select Elements
 export interface FormSelect extends FormControlConfig {
-  options: FormElementOptions[]
+  options: FormElementOptions[],
+  value: string | null
 }
 
 // Form Control Interfaces for Checkbox Group Elements
 export interface FormCheckboxGroup extends FormControlConfig {
-  options: FormElementOptions[]
+  options: FormElementOptions[],
+  value: string[]
 }
 
 export interface FormRadioGroup extends FormControlConfig {

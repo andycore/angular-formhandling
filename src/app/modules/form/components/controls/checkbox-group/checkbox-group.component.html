@@ -8,8 +8,9 @@
           type="checkbox"
           [id]="'checkbox-' + i"
           [value]="option.value"
-          [checked]="option.checked"
+          [checked]="isChecked(option.value)"
           (change)="onChange($event)"
+          [disabled]="controlConfig.disabled"
         >
         <label class="form-check-label" [for]="'checkbox-' + i">
           {{ option.label }}

@@ -7,6 +7,7 @@
          [ngClass]="{'is-invalid': (currentControl?.invalid && currentControl?.touched && currentControl?.dirty), 'is-valid': (currentControl?.valid && currentControl?.dirty)}"
          [id]="controlConfig.id"
          aria-describedby="emailHelp"
-         [placeholder]="controlConfig.placeholder || ''">
+         [placeholder]="controlConfig.placeholder || ''"
+         >
   <small *ngIf="controlConfig.description" class="form-text text-muted">{{controlConfig.description}}</small>
 </div>

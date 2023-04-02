@@ -71,7 +71,6 @@ export abstract class MasterControlComponent implements OnDestroy, OnInit, After
         .valueChanges
         .pipe(takeUntil(this.subscription$))
         .subscribe(() => {
-          this.checkControlIsValid();
           this.value.emit(this.currentControl?.value);
         });
     }

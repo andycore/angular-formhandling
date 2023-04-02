@@ -12,10 +12,19 @@ export class CheckboxGroupComponent extends MasterControlComponent {
   @Input() override controlConfig: FormControls = {} as FormCheckboxGroup;
 
   /**
-   * Build FormArray with values from controlConfig from the checked checkboxes
+   * Check if checkbox is checked
+   * @param value
+   */
+  public isChecked(value: string | undefined | null): boolean {
+    const values = this.frmGroup.get(this.controlConfig.name)?.value as string[];
+    return values.includes(value as string);
+  }
+
+  /**
+   * Build FormArray with values from controlConfig of checked checkboxes
    * @param event
    */
-  onChange(event: any) {
+  public onChange(event: any) {
     const checkArray: FormArray = this.frmGroup.get(this.controlConfig.name) as FormArray;
     if (event.target.checked) {
       checkArray.push(new FormControl(event.target.value));

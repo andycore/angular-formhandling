@@ -3,7 +3,9 @@
     <input type="checkbox" class="form-check-input"
            [id]="controlConfig.id"
            [value]="controlConfig.value"
-           [formControlName]="controlConfig.name">
+           [formControlName]="controlConfig.name"
+           (change)="onChange($event)"
+    >
     <label *ngIf="controlConfig.label" [for]="controlConfig.id">{{controlConfig.label}}</label>
   </div>
   <small *ngIf="controlConfig.description" class="form-text text-muted">{{controlConfig.description}}</small>

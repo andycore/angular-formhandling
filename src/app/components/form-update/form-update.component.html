@@ -1,0 +1,22 @@
+<h1>Formular Update</h1>
+<p>
+  Entwicklungsumgebung für das externe Updaten der Formulardaten<br>
+  Die Werte lassen sich in diesem Beispiel nur von aussen verändern
+</p>
+
+<div class="container">
+  <div class="form">
+    <div class="row">
+      <div class="col-md-6" [formGroup]="frmService.formGroup" (ngSubmit)="frmService.submit()">
+        <app-form [config]="formConfig['form']"></app-form>
+      </div>
+      <div class="col-md-6">
+        <textarea class="form-control" rows="19" [(ngModel)]="configJson" (ngModelChange)="onConfigChange($event)">>
+        </textarea>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

@@ -9,4 +9,9 @@ import {FormControls} from "../../../models/form-config.model";
 })
 export class CheckboxComponent extends MasterControlComponent {
   @Input() override controlConfig: FormControls = {} as FormControls;
+
+  public onChange(event: any) {
+    const formControl = this.frmGroup.get(this.controlConfig.name);
+    formControl?.setValue(event.target.checked ? event.target.value : null);
+  }
 }

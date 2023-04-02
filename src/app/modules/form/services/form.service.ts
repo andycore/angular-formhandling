@@ -30,6 +30,9 @@ export class FormService {
   public formGroup: FormGroup = new FormGroup({});
 
   constructor(private fb: FormBuilder, private frmValidationService: FormValidationService) {
+    this.formGroup.valueChanges.pipe().subscribe((value) => {
+      console.log('Form Value Changes', value);
+    });
   }
 
   /**
@@ -41,28 +44,33 @@ export class FormService {
     this.formGroup = this.fb.group({});
     for (const key in config) {
       if (config.hasOwnProperty(key)) {
-        const controls = config[key];
-        for (const control of controls) {
-          const ctrl = control as FormControls;
-          switch (control.type) {
+        const controlConfigs = config[key];
+        for (const controlCfg of controlConfigs) {
+          const ctrl = controlCfg as FormControls;
+          switch (controlCfg.type) {
             case FormControlType.INPUT:
-              this.formGroup.addControl(ctrl.name, this.createInputControl(control as FormInput));
+              this.formGroup.addControl(ctrl.name, this.createInputControl(controlCfg as FormInput));
               break;
             case FormControlType.SELECT:
-              this.formGroup.addControl(ctrl.name, this.createSelectControl(control as FormSelect));
+              this.formGroup.addControl(ctrl.name, this.createSelectControl(controlCfg as FormSelect));
               break;
             case FormControlType.CHECKBOX_GROUP:
-              this.formGroup.addControl(ctrl.name, this.createCheckboxGroupControl(control as FormCheckboxGroup));
+              this.formGroup.addControl(ctrl.name, this.createCheckboxGroupControl(controlCfg as FormCheckboxGroup));
               break;
             case FormControlType.RADIO:
-              this.formGroup.addControl(ctrl.name, this.createRadioGroupControl(control as FormRadioGroup));
+              this.formGroup.addControl(ctrl.name, this.createRadioGroupControl(controlCfg as FormRadioGroup));
               break;
             case FormControlType.CHECKBOX:
-              this.formGroup.addControl(ctrl.name, this.createCheckboxControl(control as FormInput));
+              this.formGroup.addControl(ctrl.name, this.createCheckboxControl(controlCfg as FormInput));
               break;
             default:
               break;
           }
+
+          if (controlCfg.disabled) {
+            this.formGroup.controls[controlCfg.name].disable();
+          }
+
         }
       }
     }
@@ -87,7 +95,7 @@ export class FormService {
    */
   private createSelectControl(config: FormSelect) {
     const selected = config.options.find(option => option.checked);
-    return new FormControl(selected ? selected.value : '' || '', config.validatiors, config.validatiorsAsync);
+    return new FormControl(selected ? selected.value : config.value || '', config.validatiors, config.validatiorsAsync);
   }
 
   /**
@@ -99,8 +107,7 @@ export class FormService {
   private createCheckboxGroupControl(config: FormCheckboxGroup) {
     const controlArray: FormControl[] = [];
     config.options.forEach(option => {
-      if (option.checked)
-        controlArray.push(new FormControl(option.value));
+      controlArray.push(new FormControl(option.value));
     });
     return new FormArray(controlArray);
   }

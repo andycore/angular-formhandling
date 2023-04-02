@@ -2,7 +2,7 @@ import {
   FormCheckboxGroup,
   FormConfigModel,
   FormControlType,
-  FormInput,
+  FormInput, FormRadioGroup,
   FormSelect
 } from "./modules/form/models/form-config.model";
 
@@ -39,8 +39,9 @@ export const formConfig: FormConfigModel = {
       id: 'checkboxGroup',
       name: 'checkboxGroup',
       type: FormControlType.CHECKBOX_GROUP,
+      value: ['option2'],
       options: [
-        {value: 'option1', label: 'Option 1', checked: true},
+        {value: 'option1', label: 'Option 1'},
         {value: 'option2', label: 'Option 2'},
         {value: 'option3', label: 'Option 3'}
       ],
@@ -64,7 +65,7 @@ export const formConfig: FormConfigModel = {
         {value: 'option2', label: 'Option 2', checked: true},
         {value: 'option3', label: 'Option 3'}
       ],
-    } as FormCheckboxGroup,
+    } as FormRadioGroup,
     {
       id: 'smurf_agb',
       name: 'smurf_agb',
