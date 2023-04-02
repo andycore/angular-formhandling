@@ -16,6 +16,10 @@ export const formConfig: FormConfigModel = {
       type: FormControlType.INPUT,
       label: 'Text 1',
       description: 'This is a example description',
+      inputGroup: {
+        site: 'right',
+        icon: 'bi-person'
+      }
     } as FormInput,
     {
       id: 'text2',
@@ -23,6 +27,10 @@ export const formConfig: FormConfigModel = {
       type: FormControlType.INPUT,
       label: 'Text 2',
       placeholder: 'Placeholder',
+      inputGroup: {
+        site: 'right',
+        text: 'example text'
+      }
     } as FormInput,
     {
       id: 'select1',
@@ -34,6 +42,10 @@ export const formConfig: FormConfigModel = {
         {value: 'select value 3', label: 'Text Label 3'},
       ],
       description: 'This is a example description for Select elements',
+      inputGroup: {
+        site: 'right',
+        icon: 'bi-menu-button-wide'
+      }
     } as FormSelect,
     {
       id: 'checkboxGroup',

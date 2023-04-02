@@ -8,7 +8,7 @@ export interface FormConfigModel {
 }
 
 // Base Interface for all form controls
-interface FormControlConfig {
+export interface FormControlConfig {
   id: string,
   name: string,
   type: FormControlType,
@@ -19,7 +19,8 @@ interface FormControlConfig {
   required?: boolean,
   validatiors?: ValidatorFn[],
   validatiorsAsync?: AsyncValidatorFn[],
-  description?: string
+  description?: string,
+  inputGroup?: inputGroupConfig,
 }
 
 
@@ -50,6 +51,13 @@ export interface FormElementOptions {
   value: string | null,
   label: string,
   checked?: boolean
+}
+
+// Define label and icon for input group
+export interface inputGroupConfig {
+  site: 'left' | 'right',
+  text?: string,
+  icon?: string,
 }
 
 // Enum for all form control types

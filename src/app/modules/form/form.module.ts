@@ -8,6 +8,7 @@ import {CheckboxGroupComponent} from './components/controls/checkbox-group/check
 import {RadioComponent} from './components/controls/radio-group/radio.component';
 import {ErrorComponent} from './components/form/error/error.component';
 import {CheckboxComponent} from './components/controls/checkbox/checkbox.component';
+import {InputGroupComponent} from './components/form/input-group/input-group.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {CheckboxComponent} from './components/controls/checkbox/checkbox.compone
     CheckboxGroupComponent,
     RadioComponent,
     ErrorComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    InputGroupComponent
   ],
   exports: [
     InputComponent,
@@ -26,7 +28,7 @@ import {CheckboxComponent} from './components/controls/checkbox/checkbox.compone
     DropdownComponent,
     CheckboxGroupComponent,
     RadioComponent,
-    ErrorComponent
+    ErrorComponent,
   ],
   imports: [
     ReactiveFormsModule,

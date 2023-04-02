@@ -1,13 +1,14 @@
 <div class="form-group" [formGroup]="frmGroup">
   <label *ngIf="controlConfig?.label" [for]="controlConfig.id">{{controlConfig.label}}</label>
-
-  <input type="text"
-         class="form-control"
-         [formControlName]="controlConfig.name"
-         [ngClass]="{'is-invalid': (currentControl?.invalid && currentControl?.touched && currentControl?.dirty), 'is-valid': (currentControl?.valid && currentControl?.dirty)}"
-         [id]="controlConfig.id"
-         aria-describedby="emailHelp"
-         [placeholder]="controlConfig.placeholder || ''"
-         >
+  <app-input-group [config]="controlConfig">
+    <input type="text"
+           class="form-control"
+           [formControlName]="controlConfig.name"
+           [ngClass]="{'is-invalid': (currentControl?.invalid && currentControl?.touched && currentControl?.dirty), 'is-valid': (currentControl?.valid && currentControl?.dirty)}"
+           [id]="controlConfig.id"
+           aria-describedby="emailHelp"
+           [placeholder]="controlConfig.placeholder || ''"
+    >
+  </app-input-group>
   <small *ngIf="controlConfig.description" class="form-text text-muted">{{controlConfig.description}}</small>
 </div>
