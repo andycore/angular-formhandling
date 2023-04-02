@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AbstractControl, FormGroup} from '@angular/forms';
 import {filter, map, Observable, of} from "rxjs";
+import {errorMessages} from "./error.messages";
 
 /**
  * Form Validation Service. Get all errors for a form or a specific control.
@@ -19,8 +20,8 @@ export class FormValidationService {
    * @param form
    * @example this.formValidationService.getErrorMessages(this.formGroup);
    */
-  public getErrorMessages(form: FormGroup): {[key:string]: string[]} {
-    const messages: {[key:string]: string[]} = {};
+  public getErrorMessages(form: FormGroup): { [key: string]: string[] } {
+    const messages: { [key: string]: string[] } = {};
 
     Object.keys(form.controls).forEach(key => {
       const ctrl = form.get(key);
@@ -96,23 +97,13 @@ export class FormValidationService {
    * @private
    */
   private getErrorMessage(keyError: string, value: any): string {
-    switch (keyError) {
-      case 'delayedError':
-        return 'Exemplarisch asynchroner Fehler';
-      case 'required':
-        return 'Dieses Feld ist erforderlich';
-      case 'phoneValidator':
-        return 'Dieses Feld erfordert eine Telefonnummer im Format +49 000 0000000000';
-      case 'minLength':
-        return `Mind. ${value.requiredLength} Zeichen`;
-      case 'maxLength':
-        return `Max. ${value.requiredLength} Zeichen`;
-      case 'pattern':
-        return 'Format falsch';
-      case 'trimmedNotEmpty':
-        return 'Bitte etwas auswählen';
-      default:
-        return `Validation error: ${JSON.stringify(value)}`;
-    }
+    const getErrorMessage = (keyError: string, value: string) => {
+      const errorMessageTemplate = errorMessages[keyError] || errorMessages['default'];
+      return errorMessageTemplate.replace(/{([^}]+)}/g, (match, key) => {
+        const errorIdent = key.replace(/^value\./, '');
+        return value[errorIdent];
+      });
+    };
+    return getErrorMessage(keyError, value);
   }
 }
