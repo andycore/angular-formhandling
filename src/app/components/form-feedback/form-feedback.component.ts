@@ -34,10 +34,11 @@ export class FormFeedbackComponent {
         id: 'checkboxGroup',
         name: 'checkboxGroup',
         type: FormControlType.CHECKBOX_GROUP,
+        value: ['option1', 'option2'],
         options: [
           {value: 'option1', label: 'Option 1'},
           {value: 'option2', label: 'Option 2'},
-          {value: 'option3', label: 'Option 3', checked: true},
+          {value: 'option3', label: 'Option 3'},
           {value: 'option4', label: 'Option 4'}
         ]
       } as FormCheckboxGroup,

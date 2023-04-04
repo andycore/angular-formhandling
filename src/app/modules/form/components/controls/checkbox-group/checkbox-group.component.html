@@ -8,7 +8,7 @@
           type="checkbox"
           [id]="'checkbox-' + i"
           [value]="option.value"
-          [checked]="isChecked(option.value)"
+          [checked]="(isChecked(option.value) || option.checked)"
           (change)="onChange($event)"
           [disabled]="controlConfig.disabled"
         >

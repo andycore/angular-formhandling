@@ -23,7 +23,7 @@
   <div class="row mb-3">
     <div class="col-md-12">
       <h2>Formularwerte</h2>
-      <pre>{{formService.formGroup.value | json}}</pre>
+      <pre>{{formService.formGroup.getRawValue() | json}}</pre>
     </div>
     <div *ngIf="group.invalid">
       <h2>Formular Fehler</h2>

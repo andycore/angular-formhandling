@@ -16,8 +16,7 @@ export class CheckboxGroupComponent extends MasterControlComponent {
    * @param value
    */
   public isChecked(value: string | undefined | null): boolean {
-    const values = this.frmGroup.get(this.controlConfig.name)?.value as string[];
-    return values.includes(value as string);
+    return (this.controlConfig.value as string[]).includes(value as string);
   }
 
   /**
