@@ -68,18 +68,20 @@ export class FormValidationService {
   }[]> {
     if (control) {
       return control?.statusChanges.pipe(
-        filter(status => status === 'INVALID' || status === 'PENDING'),
+        filter(status => status === 'INVALID' || status === 'PENDING' || status === 'VALID'),
         map((status) => {
           const errors: { validator: string, state: any, message: string }[] = [];
 
           if (status === 'PENDING') {
             errors.push({validator: 'status', state: status, message: 'status'});
           }
-          this.getControlErrors(control).then((messages) => {
-            messages.forEach((message) => {
-              errors.push({validator: 'message', state: message, message: message});
+          if (status === 'INVALID') {
+            this.getControlErrors(control).then((messages) => {
+              messages.forEach((message) => {
+                errors.push({validator: 'message', state: message, message: message});
+              });
             });
-          });
+          }
 
           return errors;
         })
