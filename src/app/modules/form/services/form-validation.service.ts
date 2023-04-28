@@ -59,9 +59,9 @@ export class FormValidationService {
   /**
    * Get all errors for a specific control with async validation
    * @param control
-   * @example this.formValidationService.exampleObserveErrors$(this.formGroup.get('name')).subscribe((errors) => console.log(errors));
+   * @example this.formValidationService.observeErrors$(this.formGroup.get('name')).subscribe((errors) => console.log(errors));
    */
-  public exampleObserveErrors$(control?: AbstractControl | null): Observable<{
+  public observeErrors$(control?: AbstractControl | null): Observable<{
     validator: string,
     state: any,
     message: string

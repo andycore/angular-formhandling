@@ -159,7 +159,7 @@ export class FormService {
     state: any,
     message: string
   }[]> {
-    return this.frmValidationService.exampleObserveErrors$(this.formGroup.get(controlName));
+    return this.frmValidationService.observeErrors$(this.formGroup.get(controlName));
   }
 
 
