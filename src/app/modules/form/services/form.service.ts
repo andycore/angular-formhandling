@@ -106,9 +106,7 @@ export class FormService {
    */
   private createCheckboxGroupControl(config: FormCheckboxGroup) {
     const controlArray: FormControl[] = [];
-    config.options.forEach(option => {
-      controlArray.push(new FormControl(option.value));
-    });
+    config.options.forEach(option => option.value && config.value.includes(option.value.toString()) ? controlArray.push(new FormControl(option.value)) : null);
     return new FormArray(controlArray);
   }
 
